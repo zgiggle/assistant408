@@ -123,8 +123,8 @@ xtuner convert merge \
     $SAVE_PATH \
 --max-shard-size 2GB
 ```
-__7. 模型运行__
-&emsp;&emsp;提供两种运行方式，第一种运行web_demo.py，首先修改模型路径为合并后的微调模型，再进行运行。
+__7. 模型运行__  
+&emsp;&emsp;提供两种运行方式，第一种方式为运行web_demo.py，首先修改模型路径为合并后的微调模型，再进行运行。
 ```python
 model = (AutoModelForCausalLM.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
                                                   trust_remote_code=True).to(
@@ -139,6 +139,18 @@ streamlit run web_demo.py --server.address 127.0.0.1 --server.port 7860
 ```
 &emsp;&emsp;运行效果如下：  
 <img src="assets/web_demo.png" width="100%">
+
+&emsp;&emsp;第二种方式为运行run_internlm.py，首先修改模型路径为合并后的微调模型，再进行运行。
+```python
+llm = InternLM_LLM(model_path = "/root/personal_assistant/config/question/work_dirs/hf_merge")
+```
+```bash
+# 开始运行
+python run_internlm.py
+```
+&emsp;&emsp;运行效果如下： 
+
+
 
 
 ## ‍‍‍‍‍🙂 项目成员
