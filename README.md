@@ -34,8 +34,30 @@ xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 
 __3. 修改配置文件__
 ```bash
-mkdir /root/personal_assistant/config/question && cd /root/personal_assistant/config/question
-xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
+# 修改模型为本地路径
+pretrained_model_name_or_path = '/root/share/module_repos/internlm2-chat-7b'
+
+# 修改训练数据集为本地路径
+data_path = '/root/personal_assistant/data/xtuner_data/answer2.json'
+
+# 修改配置文件PART 1参数
+max_length = 2048
+max_epochs = 12
+evaluation_freq = 90
+SYSTEM = '您是考研408计算机学科专业基础综合小助手，您始终根据提问者的问题提供准确、全面和详细的答案。'
+evaluation_inputs = [
+    '请做一下自我介绍',
+    '计算机中，浮点数的指数部分通常采用什么方式进行编码', 
+    '在计算机系统中，中断的作用是什么？',
+    '在操作系统中，死锁发生的必要条件之一是：',
+    '哪种设备不适合使用缓冲区（Buffer）技术？',
+    '在计算机系统中，什么决定了计算机执行指令的速度？'
+]
+
+# 修改配置文件PART 3参数
+dataset=dict(type=load_dataset, path='json', data_files=dict(train=data_path))
+dataset_map_fn=None
+
 ```
 
 
