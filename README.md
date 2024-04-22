@@ -187,7 +187,7 @@ lmdeploy lite auto_awq \
   --w-group-size 128 \
   --work-dir $WORK_DIR
 ```
-&emsp;&emsp;使用lmdeploy chat即可快速体验量化后的结果，可以明显将 14G 显存占用降低
+&emsp;&emsp;使用lmdeploy chat即可快速体验量化后的结果，可以明显将 19G 显存占用降低
 
 
 ### 📝 模型评测
