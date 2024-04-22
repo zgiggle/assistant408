@@ -1,18 +1,18 @@
 # assistant408
 基于Internlm2-chat-7b模型的408考研小助手
 ## 📖 简介
-assistant408（考研408计算机学科专业基础综合的小助手）是一个集成 408 考研知识及解答能力的大语言模型。
+&emsp;&emsp;assistant408（考研408计算机学科专业基础综合的小助手）是一个集成 408 考研知识及解答能力的大语言模型。
 > 408全称计算机专业基础综合，共包括四门专业课的考察，分别是数据结构、计算机组成原理、操作系统和计算机网络。
 > |  考试科目  |   数据结构   |   计算机组成原理   | 操作系统 | 计算机网络 |
 >|:------:|:------:|:-------:|:-------:|:-------:|
 > |分数|45分|45分|35分|25分|
 > |考试占比|30%|30%|23%|17%|
 
-该模型基于Internlm2-chat-7b基座模型，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。
+&emsp;&emsp;该模型基于Internlm2-chat-7b基座模型，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。
 
 ## 🚀 快速开始
 ### 📝 知识库
-在本次知识库搭建中用到了如下知识，有需要的可以自行前往下载，在本仓库 data_base/vector_db/chroma 目录下已经为大家搭建好了训练后的知识库，可以将本仓库 clone 到本地。
+&emsp;&emsp;在本次知识库搭建中用到了如下知识，有需要的可以自行前往下载，在本仓库 data_base/vector_db/chroma 目录下已经为大家搭建好了训练后的知识库，可以将本仓库 clone 到本地。
 - [x] 25王道考研数据结构
 - [x] 25王道考研计算机组成原理
 - [x] 25王道考研操作系统
@@ -22,9 +22,9 @@ assistant408（考研408计算机学科专业基础综合的小助手）是一�
 git clone https://github.com/zgiggle/assistant408.git
 ```
 
-如果需要自定义知识库，可以参考create_db.py，首先将本地知识库通过Unstructed Loader转化为纯文本格式，纯文本再经过Text Splitter分为Chunks，通过Sentence Transformer转化为向量格式并存放在Chroma向量数据库中。对于用户的输入同样通过Sentence Transformer转为向量格式，再与向量数据库进行相似度匹配，找到与用户输入相关的文本段，最后将文本段嵌入到写好的Prompt Template中并交给InternLM回答。这整个过程都会被封装在检索问答流中，我们可以将个性化配置引入检索问答流中，就能搭建属于自己的RAG应用。
+&emsp;&emsp;如果需要自定义知识库，可以参考create_db.py，首先将本地知识库通过Unstructed Loader转化为纯文本格式，纯文本再经过Text Splitter分为Chunks，通过Sentence Transformer转化为向量格式并存放在Chroma向量数据库中。对于用户的输入同样通过Sentence Transformer转为向量格式，再与向量数据库进行相似度匹配，找到与用户输入相关的文本段，最后将文本段嵌入到写好的Prompt Template中并交给InternLM回答。这整个过程都会被封装在检索问答流中，我们可以将个性化配置引入检索问答流中，就能搭建属于自己的RAG应用。  
 
-目录下的LLM.py文件用于自定义LLM类，在终端使用如下命令即可运行食用（注意修改run_internlm.py中的模型地址）。
+&emsp;&emsp;目录下的LLM.py文件用于自定义LLM类，在终端使用如下命令即可运行食用（注意修改run_internlm.py中的模型地址）。
 ```bash
 python run_internlm.py
 ```
