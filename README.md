@@ -150,8 +150,25 @@ python run_internlm.py
 ```
 &emsp;&emsp;运行效果如下： 
 
+### 📝 模型量化  
+&emsp;&emsp;使用如下命令进行量化：
+```bash
+export HF_MODEL=/root/personal_assistant/config/question/work_dirs/hf_merge
+export WORK_DIR=/root/personal_assistant/model/internlm2_chat_7b_4bit
+
+lmdeploy lite auto_awq \
+   $HF_MODEL \
+  --calib-dataset 'ptb' \
+  --calib-samples 128 \
+  --calib-seqlen 2048 \
+  --w-bits 4 \
+  --w-group-size 128 \
+  --work-dir $WORK_DIR
+```
 
 
+### 📝 模型评测
+&emsp;&emsp;首先，我们团队对微调后模型和微调前模型分别进行 400 道408考题的测试，其中测试题由GPT给出，测试题可以在
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞、杨阳、周殷稷、曹一凡
