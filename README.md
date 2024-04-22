@@ -10,9 +10,12 @@ assistant408（考研408计算机学科专业基础综合的小助手）是一�
 
 该模型基于Internlm2-chat-7b基座模型，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。
 
+## 🚀 快速开始
 
-
-
+```bash
+git clone https://github.com/zgiggle/assistant408.git
+python start.py
+```
 
 
 
