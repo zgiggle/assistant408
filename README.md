@@ -12,7 +12,10 @@ assistant408（考研408计算机学科专业基础综合的小助手）是一�
 
 ## 🚀 快速开始
 ### 📝 知识库
-在本次知识库搭建中用到了如下知识，有需要的可以自行前往下载，在本仓库 data_base/vector_db/chroma 目录下已经为大家搭建好了训练后的知识库
+在本次知识库搭建中用到了如下知识，有需要的可以自行前往下载，在本仓库 data_base/vector_db/chroma 目录下已经为大家搭建好了训练后的知识库，可以将本仓库 clone 到本地
+```bash
+git clone https://github.com/zgiggle/assistant408.git
+```
 - [x] 25王道考研数据结构
 - [x] 25王道考研计算机组成原理
 - [x] 25王道考研操作系统
@@ -26,9 +29,16 @@ python run_internlm.py
 
 ### 📝 微调
 __1. 准备数据集__  
-在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，可以将本仓库 clone 到本地。
-```bash
-git clone https://github.com/zgiggle/assistant408.git
+在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
+```text
+input: 计算机中，浮点数的指数部分通常采用什么方式进行编码？
+output: 移码。
+input: 哪种类型的存储器通常被用作计算机的主存储器？
+output: SRAM。
+input: 在计算机系统中，一个32位的指令长度意味着什么？
+output: 指令的长度是32位。
+input: 什么是衡量CPU性能的一个重要指标？
+output: 时钟频率、核心数、缓存大小。
 ```
 
 __2. 准备配置文件__
