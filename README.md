@@ -31,7 +31,7 @@ python run_internlm.py
 
 ### 📝 微调
 __1. 准备数据集__  
-在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
+&emsp;&emsp;在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
 ```text
 input: 计算机中，浮点数的指数部分通常采用什么方式进行编码？
 output: 移码。
@@ -52,7 +52,7 @@ xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 ```
 
 __3. 修改配置文件__
-```bash
+```python
 # 修改模型为本地路径
 pretrained_model_name_or_path = '/root/share/module_repos/internlm2-chat-7b'
 
@@ -123,6 +123,22 @@ xtuner convert merge \
     $SAVE_PATH \
 --max-shard-size 2GB
 ```
+__7. 模型运行__
+&emsp;&emsp;提供两种运行方式，第一种运行web_demo.py，首先修改模型路径为合并后的微调模型，再进行运行。
+```python
+model = (AutoModelForCausalLM.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+                                                  trust_remote_code=True).to(
+                                                      torch.bfloat16).cuda())
+tokenizer = AutoTokenizer.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+                                              trust_remote_code=True)
+```
+```bash
+# 开始运行
+cd /root/personal_assistant/code/InternLM/chat
+streamlit run web_demo.py --server.address 127.0.0.1 --server.port 7860
+```
+&emsp;&emsp;运行效果如下：
+<img src="assets/web_demo.png" width="30%">
 
 
 ## ‍‍‍‍‍🙂 项目成员
