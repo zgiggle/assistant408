@@ -151,8 +151,9 @@ python run_internlm.py
 &emsp;&emsp;运行效果如下： 
 
 ### 📝 模型量化  
-&emsp;&emsp;使用如下命令进行量化：
+&emsp;&emsp;使用如下命令进行量化并运行：
 ```bash
+# 开始W4A16量化
 export HF_MODEL=/root/personal_assistant/config/question/work_dirs/hf_merge
 export WORK_DIR=/root/personal_assistant/model/internlm2_chat_7b_4bit
 
@@ -165,10 +166,21 @@ lmdeploy lite auto_awq \
   --w-group-size 128 \
   --work-dir $WORK_DIR
 ```
+&emsp;&emsp;使用lmdeploy chat即可快速体验量化后的结果，可以明显将 14G 显存占用降低
 
 
 ### 📝 模型评测
-&emsp;&emsp;首先，我们团队对微调后模型和微调前模型分别进行 400 道408考题的测试，其中测试题由GPT给出，测试题可以在
+&emsp;&emsp;首先，我们团队对微调前模型和微调后+向量数据库模型分别进行 400 道 408 考题的测试，其中每门科目 100 道，其中测试题由GPT给出，测试题可以在 data/test_data 获取。
+|  正确率  |   数据结构   |   计算机组成原理   | 操作系统 | 计算机网络 |
+|:------:|:------:|:-------:|:-------:|:-------:|
+|微调前模型|45分|45分|35分|25分|
+|训练后模型|85%|45分|79%|90%|
+
+
+
+
+
+
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞、杨阳、周殷稷、曹一凡
