@@ -60,6 +60,51 @@ dataset_map_fn=None
 
 ```
 
+__4. 开始训练__
+```bash
+cd /root/personal_assistant/config/question
+xtuner train internlm2_chat_7b_qlora_oasst1_e3_copy.py
+```
+__5. pth格式转换为hugging face格式__
+```bash
+mkdir /root/personal_assistant/config/question/work_dirs/hf
+export MKL_SERVICE_FORCE_INTEL=1
+
+# 配置文件存放的位置
+export CONFIG_NAME_OR_PATH=/root/personal_assistant/config/question/internlm2_chat_7b_qlora_oasst1_e3_copy.py
+
+# 模型训练后得到的pth格式参数存放的位置
+export PTH=/root/personal_assistant/config/question/work_dirs/internlm2_chat_7b_qlora_oasst1_e3_copy/iter_384.pth
+
+# pth文件转换为Hugging Face格式后参数存放的位置
+export SAVE_PATH=/root/personal_assistant/config/question/work_dirs/hf
+
+# 执行参数转换
+xtuner convert pth_to_hf $CONFIG_NAME_OR_PATH $PTH $SAVE_PATH
+```
+__6. 模型合并__
+```bash
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER='GNU'
+
+# 原始模型参数存放的位置
+export NAME_OR_PATH_TO_LLM=/root/share/model_repos/internlm2-chat-7b
+
+# Hugging Face格式参数存放的位置
+export NAME_OR_PATH_TO_ADAPTER=/root/personal_assistant/config/question/work_dirs/hf
+
+# 最终Merge后的参数存放的位置
+mkdir /root/personal_assistant/config/question/work_dirs/hf_merge
+export SAVE_PATH=/root/personal_assistant/config/question/work_dirs/hf_merge
+
+# 执行参数Merge
+xtuner convert merge \
+    $NAME_OR_PATH_TO_LLM \
+    $NAME_OR_PATH_TO_ADAPTER \
+    $SAVE_PATH \
+--max-shard-size 2GB
+```
+
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞、杨阳、周殷稷、曹一凡
