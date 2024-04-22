@@ -20,19 +20,24 @@ assistant408（考研408计算机学科专业基础综合的小助手）是一�
 - [x] ...
 
 ### 📝 微调
-__1.准备数据集__  
+__1. 准备数据集__  
 在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，可以将本仓库 clone 到本地。
 ```bash
 git clone https://github.com/zgiggle/assistant408.git
 ```
 
-__2.准备配置文件__
+__2. 准备配置文件__
 ```bash
 mkdir /root/personal_assistant/config/question && cd /root/personal_assistant/config/question
 xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 ```
 
-__3.修改配置文件__
+__3. 修改配置文件__
+```bash
+mkdir /root/personal_assistant/config/question && cd /root/personal_assistant/config/question
+xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
+```
+
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞、杨阳、周殷稷、曹一凡
