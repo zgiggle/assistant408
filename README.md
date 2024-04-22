@@ -31,7 +31,7 @@ python run_internlm.py
 
 ### 📝 微调
 __1. 准备数据集__  
-在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
+&emsp;&emsp;在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
 ```text
 input: 计算机中，浮点数的指数部分通常采用什么方式进行编码？
 output: 移码。
@@ -52,7 +52,7 @@ xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 ```
 
 __3. 修改配置文件__
-```bash
+```python
 # 修改模型为本地路径
 pretrained_model_name_or_path = '/root/share/module_repos/internlm2-chat-7b'
 
@@ -123,7 +123,52 @@ xtuner convert merge \
     $SAVE_PATH \
 --max-shard-size 2GB
 ```
+__7. 模型运行__  
+&emsp;&emsp;提供两种运行方式，第一种方式为运行web_demo.py，首先修改模型路径为合并后的微调模型，再进行运行。
+```python
+model = (AutoModelForCausalLM.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+                                                  trust_remote_code=True).to(
+                                                      torch.bfloat16).cuda())
+tokenizer = AutoTokenizer.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+                                              trust_remote_code=True)
+```
+```bash
+# 开始运行
+cd /root/personal_assistant/code/InternLM/chat
+streamlit run web_demo.py --server.address 127.0.0.1 --server.port 7860
+```
+&emsp;&emsp;运行效果如下：  
+<img src="assets/web_demo.png" width="100%">
 
+&emsp;&emsp;第二种方式为运行run_internlm.py，首先修改模型路径为合并后的微调模型，再进行运行。
+```python
+llm = InternLM_LLM(model_path = "/root/personal_assistant/config/question/work_dirs/hf_merge")
+```
+```bash
+# 开始运行
+python run_internlm.py
+```
+&emsp;&emsp;运行效果如下： 
+
+### 📝 模型量化  
+&emsp;&emsp;使用如下命令进行量化：
+```bash
+export HF_MODEL=/root/personal_assistant/config/question/work_dirs/hf_merge
+export WORK_DIR=/root/personal_assistant/model/internlm2_chat_7b_4bit
+
+lmdeploy lite auto_awq \
+   $HF_MODEL \
+  --calib-dataset 'ptb' \
+  --calib-samples 128 \
+  --calib-seqlen 2048 \
+  --w-bits 4 \
+  --w-group-size 128 \
+  --work-dir $WORK_DIR
+```
+
+
+### 📝 模型评测
+&emsp;&emsp;首先，我们团队对微调后模型和微调前模型分别进行 400 道408考题的测试，其中测试题由GPT给出，测试题可以在
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞、杨阳、周殷稷、曹一凡
