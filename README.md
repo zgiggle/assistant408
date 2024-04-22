@@ -137,8 +137,8 @@ tokenizer = AutoTokenizer.from_pretrained('/root/personal_assistant/config/quest
 cd /root/personal_assistant/code/InternLM/chat
 streamlit run web_demo.py --server.address 127.0.0.1 --server.port 7860
 ```
-&emsp;&emsp;运行效果如下：
-<img src="assets/web_demo.png" width="30%">
+&emsp;&emsp;运行效果如下：  
+<img src="assets/web_demo.png" width="100%">
 
 
 ## ‍‍‍‍‍🙂 项目成员
