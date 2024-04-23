@@ -1,7 +1,7 @@
 # assistant408
 
   <div align="center">
-    <img src="./assets/computer.png" width="200"/>
+    <img src="./assets/computer.png" width="200"/></br>
     <b><font size="5">assistant408</font></b>
   </div>
 基于Internlm2-chat-7b模型的408考研小助手
