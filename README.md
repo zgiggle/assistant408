@@ -239,7 +239,14 @@ python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-c
 ```
 &emsp;&emsp;微调后模型评测结果位于opencompass/after_train.csv，微调前模型评测结果位于opencompass/before_train.csv，
 
+## 📜 TODO
+&emsp;&emsp;针对本项目，还有许多可以优化的地方，如果后续时间充裕考虑更新优化
+- [ ] 数据集清洗
+- [ ] 探索更优的微调策略
+- [ ] 自动化评测自定义测试集
 
+## 💬 后记
+&emsp;&emsp;本次项目中团队成员花费了许多精力，对正在阅读的您有所帮助，将会是对我们最大的鼓励。如果您发现了本次项目中的不足，欢迎留言讨论。
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞，主要负责模型微调、量化、评测。
