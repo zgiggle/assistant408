@@ -227,9 +227,9 @@ unzip OpenCompassData-core-20231110.zip
 python tools/list_configs.py internlm ceval
 ```
 &emsp;&emsp;支持的模型如下，选择适配的internlm2-chat-7b模型：  
-<img src="assets/opencompass_model.png" width="100%">
+<img src="assets/opencompass_model.png" width="70%">
 &emsp;&emsp;支持的数据集如下：  
-<img src="assets/opencompass_data.png" width="100%">
+<img src="assets/opencompass_data.png" width="70%">
 &emsp;&emsp;评测的结果位于opencompass/after_train.csv
 
 
