@@ -237,7 +237,7 @@ python run.py --datasets ceval_gen --hf-path /root/personal_assistant/config/que
 # 评测微调前模型
 python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
 ```
-&emsp;&emsp;微调后模型评测结果位于opencompass/after_train.csv，微调前模型评测结果位于opencompass/before_train.csv，
+&emsp;&emsp;微调后模型评测结果位于opencompass/after_train.csv，微调前模型评测结果位于opencompass/before_train.csv，参考这两份文件并针对计算机网络、计算机组成和操作系统测试集，可以发现，微调后的模型在ceval-computer_network测试集上准确率下降了，但是在ceval-operating_system测试集上准确率上升。但是在人机交互上，微调后+向量数据库的模型更优。	
 
 ## 📜 TODO
 &emsp;&emsp;针对本项目，还有许多可以优化的地方，如果后续时间充裕考虑更新优化
