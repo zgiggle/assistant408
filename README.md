@@ -206,7 +206,7 @@ lmdeploy lite auto_awq \
 &emsp;&emsp;经过测试发现，训练后的模型能够快速响应，并给出答案，正确率较高，而训练前模型响应速度慢，不能准确给出答案，响应内容多而杂。  
 &emsp;&emsp;训练前模型响应效果：
 <img src="assets/before_train1.png" width="100%">  
-<img src="assets/before_train2.png" width="100%">
+<img src="assets/before_train2.png" width="60%">
 
 &emsp;&emsp;训练后模型响应效果：
 <img src="assets/run_gradio.png" width="100%">
