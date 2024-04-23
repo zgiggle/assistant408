@@ -193,7 +193,6 @@ lmdeploy lite auto_awq \
   --w-group-size 128 \
   --work-dir $WORK_DIR
 ```
-&emsp;&emsp;使用lmdeploy chat即可快速体验量化后的结果，可以明显将 19G 显存占用降低
 
 
 ### 📝 模型评测
@@ -230,7 +229,15 @@ python tools/list_configs.py internlm ceval
 <img src="assets/opencompass_model.png" width="70%">  
 &emsp;&emsp;支持的数据集如下：  
 <img src="assets/opencompass_data.png" width="70%">  
-&emsp;&emsp;评测的结果位于opencompass/after_train.csv
+&emsp;&emsp;执行如下命令开始评测：
+```bash
+# 评测微调后模型
+python run.py --datasets ceval_gen --hf-path /root/personal_assistant/config/question/work_dirs/hf_merge/ --tokenizer-path /root/personal_assistant/config/question/work_dirs/hf_merge/ --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
+
+# 评测微调前模型
+python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
+```
+&emsp;&emsp;微调后模型评测结果位于opencompass/after_train.csv，微调前模型评测结果位于opencompass/before_train.csv，
 
 
 
