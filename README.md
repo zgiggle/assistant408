@@ -180,7 +180,7 @@ python run_internlm.py
 <img src="assets/run_gradio.png" width="100%">
 
 ### 📝 模型量化  
-&emsp;&emsp;使用如下命令进行量化并运行：
+&emsp;&emsp;参考官网的命令，注意基座模型与lmdeploy版本是否适配。使用如下命令进行量化并运行：
 ```bash
 # 开始W4A16量化
 export HF_MODEL=/root/personal_assistant/config/question/work_dirs/hf_merge
