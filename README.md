@@ -203,13 +203,29 @@ lmdeploy lite auto_awq \
 |训练前模型|--|--|--|--|
 |训练后模型|85%|86%|79%|90%|
 
-&emsp;&emsp;经过测试发现，训练后的模型能够快速响应，并给出答案，正确率较高，而训练前模型响应速度慢，不能准确给出答案，响应内容多而杂。  
+&emsp;&emsp;经过测试发现，训练后的模型能够快速响应，并给出答案，正确率较高，而训练前模型响应速度慢，准确率低，响应内容多而杂，不是想要的结果。  
 &emsp;&emsp;训练前模型响应效果：
-<img src="assets/before_train1.png" width="100%">  
-<img src="assets/before_train2.png" width="60%">
+<img src="assets/before_train1.png" width="90%">  
+<img src="assets/before_train2.png" width="100%">
 
 &emsp;&emsp;训练后模型响应效果：
 <img src="assets/run_gradio.png" width="100%">
+
+&emsp;&emsp;最后，我们进行了opencompass评测，首先环境准备：
+```bash
+# 环境准备
+git clone https://github.com/open-compass/opencompass
+cd opencompass
+pip install -e .
+
+# 数据准备
+cp /share/temp/datasets/OpenCompassData-core-20231110.zip /root/opencompass/
+unzip OpenCompassData-core-20231110.zip
+```
+
+
+
+
 
 
 
