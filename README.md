@@ -35,7 +35,7 @@
 > |考试占比|30%|30%|23%|17%|
 
 &emsp;&emsp;该模型基于Internlm2-chat-7b基座模型，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。以下是本次项目的结构框图：  
-<img src="./assets/structure.png" width="200"/></br>
+<img src="./assets/structure.png" width="100"/></br>
 
 ## 🚀 快速开始
 ### 📝 知识库
