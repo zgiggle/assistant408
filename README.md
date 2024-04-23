@@ -1,4 +1,4 @@
-# assistant408
+# 408考研小助手
 
   <div align="center">
     <img src="./assets/computer.png" width="200"/></br>
@@ -193,7 +193,6 @@ lmdeploy lite auto_awq \
   --w-group-size 128 \
   --work-dir $WORK_DIR
 ```
-&emsp;&emsp;使用lmdeploy chat即可快速体验量化后的结果，可以明显将 19G 显存占用降低
 
 
 ### 📝 模型评测
@@ -226,13 +225,28 @@ unzip OpenCompassData-core-20231110.zip
 ```bash
 python tools/list_configs.py internlm ceval
 ```
-支持的模型如下，选择适配的internlm2-chat-7b模型：  
-<img src="assets/opencompass_model.png" width="100%">
-支持的数据集如下：  
-<img src="assets/opencompass_data.png" width="100%">
+&emsp;&emsp;支持的模型如下，选择适配的internlm2-chat-7b模型：  
+<img src="assets/opencompass_model.png" width="70%">  
+&emsp;&emsp;支持的数据集如下：  
+<img src="assets/opencompass_data.png" width="70%">  
+&emsp;&emsp;执行如下命令开始评测：
+```bash
+# 评测微调后模型
+python run.py --datasets ceval_gen --hf-path /root/personal_assistant/config/question/work_dirs/hf_merge/ --tokenizer-path /root/personal_assistant/config/question/work_dirs/hf_merge/ --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
 
+# 评测微调前模型
+python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-path /root/share/model_repos/internlm2-chat-7b/ --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
+```
+&emsp;&emsp;微调后模型评测结果位于opencompass/after_train.csv，微调前模型评测结果位于opencompass/before_train.csv，
 
+## 📜 TODO
+&emsp;&emsp;针对本项目，还有许多可以优化的地方，如果后续时间充裕考虑更新优化
+- [ ] 数据集清洗
+- [ ] 探索更优的微调策略
+- [ ] 自动化评测自定义测试集
 
+## 💬 后记
+&emsp;&emsp;本次项目中团队成员花费了许多精力，对正在阅读的您有所帮助，将会是对我们最大的鼓励。如果您发现了本次项目中的不足，欢迎留言讨论。
 
 ## ‍‍‍‍‍🙂 项目成员
 - 张丰瑞，主要负责模型微调、量化、评测。
