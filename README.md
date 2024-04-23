@@ -204,11 +204,11 @@ lmdeploy lite auto_awq \
 |训练后模型|85%|86%|79%|90%|
 
 &emsp;&emsp;经过测试发现，训练后的模型能够快速响应，并给出答案，正确率较高，而训练前模型响应速度慢，准确率低，响应内容多而杂，不是想要的结果。  
-&emsp;&emsp;训练前模型响应效果：
+&emsp;&emsp;训练前模型响应效果：  
 <img src="assets/before_train1.png" width="90%">  
 <img src="assets/before_train2.png" width="100%">
 
-&emsp;&emsp;训练后模型响应效果：
+&emsp;&emsp;训练后模型响应效果：  
 <img src="assets/run_gradio.png" width="100%">
 
 &emsp;&emsp;最后，我们进行了opencompass评测，首先环境准备：
@@ -222,9 +222,14 @@ pip install -e .
 cp /share/temp/datasets/OpenCompassData-core-20231110.zip /root/opencompass/
 unzip OpenCompassData-core-20231110.zip
 ```
-
-
-
+&emsp;&emsp;进入环境准备的目录，执行如下命令，查看支持的模型和数据集。
+```bash
+python tools/list_configs.py internlm ceval
+```
+支持的模型如下，选择适配的internlm2-chat-7b模型：  
+<img src="assets/opencompass_model.png" width="100%">
+支持的数据集如下：  
+<img src="assets/opencompass_data.png" width="100%">
 
 
 
