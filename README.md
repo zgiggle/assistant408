@@ -1,4 +1,4 @@
-# assistant408
+# 408考研小助手
 
   <div align="center">
     <img src="./assets/computer.png" width="200"/></br>
