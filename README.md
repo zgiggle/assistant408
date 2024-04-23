@@ -211,6 +211,22 @@ lmdeploy lite auto_awq \
 &emsp;&emsp;训练后模型响应效果：
 <img src="assets/run_gradio.png" width="100%">
 
+&emsp;&emsp;最后，我们进行了opencompass评测，首先环境准备：
+```bash
+# 环境准备
+git clone https://github.com/open-compass/opencompass
+cd opencompass
+pip install -e .
+
+# 数据准备
+cp /share/temp/datasets/OpenCompassData-core-20231110.zip /root/opencompass/
+unzip OpenCompassData-core-20231110.zip
+```
+
+
+
+
+
 
 
 ## ‍‍‍‍‍🙂 项目成员
