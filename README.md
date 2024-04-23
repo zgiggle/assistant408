@@ -1,4 +1,8 @@
 # assistant408
+<img src="./assets/computer.png" width="200"/>
+  <div align="center">
+    <b><font size="5">assistant408</font></b>
+  </div>
 基于Internlm2-chat-7b模型的408考研小助手
 
 ## 🖊️ 目录
@@ -200,7 +204,7 @@ lmdeploy lite auto_awq \
 &emsp;&emsp;经过测试发现，训练后的模型能够快速响应，并给出答案，正确率较高，而训练前模型响应速度慢，不能准确给出答案，响应内容多而杂。  
 &emsp;&emsp;训练前模型响应效果：
 <img src="assets/before_train1.png" width="100%">  
-<img src="assets/before_train2.png" width="50%">
+<img src="assets/before_train2.png" width="100%">
 
 &emsp;&emsp;训练后模型响应效果：
 <img src="assets/run_gradio.png" width="100%">
