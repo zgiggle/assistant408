@@ -78,7 +78,8 @@ mkdir /root/personal_assistant/config/question && cd /root/personal_assistant/co
 xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 ```
 
-__3. 修改配置文件__
+__3. 修改配置文件__  
+&emsp;&emsp;各种参数的设置需要一步一步尝试，直到一个满意的结果，这将是一个漫长的过程。
 ```python
 # 修改模型为本地路径
 pretrained_model_name_or_path = '/root/share/module_repos/internlm2-chat-7b'
