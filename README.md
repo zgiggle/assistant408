@@ -2,7 +2,7 @@
 
   <div align="center">
     <img src="./assets/computer.png" width="200"/></br>
-    <b><font size="5">assistant408</font></b></br>
+    <b><font size="5">assistant408</font></b></br></br>
     <b><font size="5">基于Internlm2-chat-7b模型的408考研小助手</font></b>
   </div>
 
