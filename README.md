@@ -217,7 +217,7 @@ lmdeploy lite auto_awq \
 &emsp;&emsp;训练后模型响应效果，如果想要知道更多的信息，可以让大模型详细讲讲：  
 <img src="assets/run_gradio.png" width="100%">
 
-&emsp;&emsp;最后，我们进行了opencompass评测，首先环境准备：
+&emsp;&emsp;最后，我们对微调前后的模型分别进行了opencompass评测，首先环境准备：
 ```bash
 # 环境准备
 git clone https://github.com/open-compass/opencompass
