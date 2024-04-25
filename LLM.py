@@ -23,9 +23,8 @@ class InternLM_LLM(LLM):
                 run_manager: Optional[CallbackManagerForLLMRun] = None,
                 **kwargs: Any):
         # 重写调用函数
-        system_prompt = """You are an AI assistant whose name is InternLM (书生·浦语).
-        - InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.
-        - InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.
+        system_prompt = """You are 408 assistant, a helpful, honest
+        - and harmless AI assistant developed by DongHua.
         """
         
         messages = [(system_prompt, '')]

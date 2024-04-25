@@ -34,7 +34,8 @@
 > |分数|45分|45分|35分|25分|
 > |考试占比|30%|30%|23%|17%|
 
-&emsp;&emsp;该模型基于Internlm2-chat-7b基座模型，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。
+&emsp;&emsp;该模型基于Internlm2-chat-7b基座模型（因为在基于一代Internlm-chat-7b模型的开发出现不稳定的乱码现象，所以终止了一代的开发），构建 408 知识库，使用模型容易出错的概念性题目进行微调，再使用GPT生成的400道题目进行评测，得到了较好的效果。以下是本次项目的结构框图：  
+<img src="./assets/structure.png" width="900"/></br>
 
 ## 🚀 快速开始
 ### 📝 知识库
@@ -56,7 +57,7 @@ python run_internlm.py
 ```
 
 ### 📝 微调
-__1. 准备数据集__
+__1. 准备数据集__  
 &emsp;&emsp;在本仓库的 data/xtuner_data 目录下已经准备好了训练的数据集，微调数据集结构如下。
 ```text
 input: 计算机中，浮点数的指数部分通常采用什么方式进行编码？
@@ -77,7 +78,8 @@ mkdir /root/personal_assistant/config/question && cd /root/personal_assistant/co
 xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
 ```
 
-__3. 修改配置文件__
+__3. 修改配置文件__  
+&emsp;&emsp;各种参数的设置需要一步一步尝试，直到一个满意的结果，这将是一个漫长的过程。
 ```python
 # 修改模型为本地路径
 pretrained_model_name_or_path = '/root/share/module_repos/internlm2-chat-7b'
@@ -178,7 +180,7 @@ python run_internlm.py
 <img src="assets/run_gradio.png" width="100%">
 
 ### 📝 模型量化  
-&emsp;&emsp;使用如下命令进行量化并运行：
+&emsp;&emsp;参考官网的命令，注意基座模型与lmdeploy版本是否适配。使用如下命令进行量化并运行：
 ```bash
 # 开始W4A16量化
 export HF_MODEL=/root/personal_assistant/config/question/work_dirs/hf_merge
