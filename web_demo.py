@@ -31,6 +31,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM  # isort: skip
 
 logger = logging.get_logger(__name__)
 
+download(model_repo='giggle/assistant408',
+        output='model')
 
 @dataclass
 class GenerationConfig:
@@ -180,10 +182,10 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+    model = (AutoModelForCausalLM.from_pretrained('model',
                                                   trust_remote_code=True).to(
                                                       torch.bfloat16).cuda())
-    tokenizer = AutoTokenizer.from_pretrained('/root/personal_assistant/config/question/work_dirs/hf_merge',
+    tokenizer = AutoTokenizer.from_pretrained('model',
                                               trust_remote_code=True)
     # /root/personal_assistant/config/question/work_dirs/hf_merge
     # /root/share/model_repos/internlm2-chat-7b
