@@ -35,7 +35,7 @@ from transformers import AutoModel
 
 logger = logging.get_logger(__name__)
 
-base_path = './assistant408'
+base_path = 'giggle/assistant408'
 
 @dataclass
 class GenerationConfig:
