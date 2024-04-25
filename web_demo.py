@@ -28,6 +28,7 @@ from transformers.generation.utils import (LogitsProcessorList,
 from transformers.utils import logging
 
 from transformers import AutoTokenizer, AutoModelForCausalLM  # isort: skip
+from openxlab.model import download
 
 logger = logging.get_logger(__name__)
 
