@@ -248,7 +248,7 @@ python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-c
 
 ### 📝 模型部署
 &emsp;&emsp;将微调后合并的模型上传至 openxlab 仓库 https://openxlab.org.cn/models/detail/giggle/assistant408.  
-&emsp;&emsp;新建app.py作为启动文件，修改运行文件（这里为web_demo.py）中的模型路径为openxlab仓库的路径，最后申请硬件资源，开始构建启动：  
+&emsp;&emsp;新建app.py作为启动文件，修改运行文件（这里为web_demo.py）中的模型路径为openxlab仓库的路径，最后申请硬件资源，开始构建启动，可能因为显存不够的原因一直处于running状态：  
 <img src="assets/openxlab.png" width="100%">
 
 ## 📜 TODO
