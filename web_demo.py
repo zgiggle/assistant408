@@ -241,8 +241,8 @@ def main():
     model, tokenizer = load_model()
     print('load model end.')
 
-    user_avator = '/root/personal_assistant/code/InternLM/assets/user.png'
-    robot_avator = '/root/personal_assistant/code/InternLM/assets/robot.png'
+    user_avator = 'assets/user.png'
+    robot_avator = 'assets/robot.png'
 
     st.title('408问答小助手')
 
