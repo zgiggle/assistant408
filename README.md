@@ -214,7 +214,7 @@ lmdeploy lite auto_awq \
 <img src="assets/before_train1.png" width="90%">  
 <img src="assets/before_train2.png" width="100%">
 
-&emsp;&emsp;训练后模型响应效果：  
+&emsp;&emsp;训练后模型响应效果，如果想要知道更多的信息，可以让大模型详细讲讲：  
 <img src="assets/run_gradio.png" width="100%">
 
 &emsp;&emsp;最后，我们进行了opencompass评测，首先环境准备：
