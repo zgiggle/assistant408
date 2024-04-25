@@ -131,7 +131,8 @@ export SAVE_PATH=/root/personal_assistant/config/question/work_dirs/hf
 # 执行参数转换
 xtuner convert pth_to_hf $CONFIG_NAME_OR_PATH $PTH $SAVE_PATH
 ```
-__6. 模型合并__
+__6. 模型合并__  
+&emsp;&emsp;将原模型与hugging face格式的微调模型进行合并。
 ```bash
 export MKL_SERVICE_FORCE_INTEL=1
 export MKL_THREADING_LAYER='GNU'
