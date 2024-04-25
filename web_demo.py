@@ -30,10 +30,12 @@ from transformers.utils import logging
 from transformers import AutoTokenizer, AutoModelForCausalLM  # isort: skip
 from openxlab.model import download
 
+import os
+from transformers import AutoModel
+
 logger = logging.get_logger(__name__)
 
-download(model_repo='giggle/assistant408',
-        output='model')
+base_path = './assistant408'
 
 @dataclass
 class GenerationConfig:
@@ -183,10 +185,10 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained('model',
+    model = (AutoModelForCausalLM.from_pretrained(base_path,
                                                   trust_remote_code=True).to(
                                                       torch.bfloat16).cuda())
-    tokenizer = AutoTokenizer.from_pretrained('model',
+    tokenizer = AutoTokenizer.from_pretrained(base_path,
                                               trust_remote_code=True)
     # /root/personal_assistant/config/question/work_dirs/hf_merge
     # /root/share/model_repos/internlm2-chat-7b
