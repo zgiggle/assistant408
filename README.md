@@ -113,7 +113,8 @@ __4. 开始训练__
 cd /root/personal_assistant/config/question
 xtuner train internlm2_chat_7b_qlora_oasst1_e3_copy.py
 ```
-__5. pth格式转换为hugging face格式__
+__5. pth格式转换为hugging face格式__  
+&emsp;&emsp;微调后将会生成pth格式的文件，需要将其转换为hugging face格式。
 ```bash
 mkdir /root/personal_assistant/config/question/work_dirs/hf
 export MKL_SERVICE_FORCE_INTEL=1
