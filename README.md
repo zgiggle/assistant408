@@ -252,10 +252,11 @@ python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-c
 <img src="assets/openxlab.png" width="100%">
 
 ## 📜 TODO
-&emsp;&emsp;针对本项目，还有许多可以优化的地方，如果后续时间充裕考虑更新优化
+&emsp;&emsp;针对本项目，还有许多可以优化的地方，后续时间充裕考虑更新优化
 - [ ] 数据集清洗
 - [ ] 探索更优的微调策略
 - [ ] 自动化评测自定义测试集
+- [ ] ...
 
 ## 💬 后记
 &emsp;&emsp;本次项目中团队成员花费了许多精力，对正在阅读的您有所帮助，将会是对我们最大的鼓励。如果您发现了本次项目中的不足，欢迎留言讨论。
