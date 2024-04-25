@@ -151,6 +151,8 @@ xtuner convert merge \
     $SAVE_PATH \
 --max-shard-size 2GB
 ```
+&emsp;&emsp;微调后合并模型已经上传openxlab仓库 https://openxlab.org.cn/models/detail/giggle/assistant408
+
 __7. 模型运行__  
 &emsp;&emsp;提供两种运行方式，第一种方式为运行web_demo.py，首先修改模型路径为合并后的微调模型，再进行运行。
 ```python
