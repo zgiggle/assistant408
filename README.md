@@ -270,7 +270,7 @@ python run.py --datasets ceval_gen --hf-path /root/share/model_repos/internlm2-c
 ## 💕 致谢
 <div align="center">
 
-**感谢上海人工智能实验室组织的 书生·浦语实战营 学习活动 与 算力支持~**
+**感谢上海人工智能实验室组织的 书生·浦语实战营 学习活动 与 算力支持~**  
 **感谢各位老师的帮助~**
 
 </div>
